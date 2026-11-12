@@ -1,0 +1,25 @@
+[project]
+license = {file = "LICENSE"}
+name = "tas-pyspinw-adapter"
+version = "0.1.0"
+description = "TAS co-pilot adapter boundary for upstream SpinW/pySpinW."
+requires-python = ">=3.9"
+dependencies = ["tas-copilot-contracts"]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+pyspinw = ["pyspinw"]
+
+[project.entry-points."tas_copilot.tools"]
+tas_pyspinw_adapter = "tas_pyspinw_adapter.copilot_plugin"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
